@@ -7,10 +7,15 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="show-chatbot">
+	<button class="chatbot-toggler">
+		<span id="send-btn" class="material-symbols-outlined">mode_comment</span>
+		<span id="send-btn" class="material-symbols-outlined">close</span>
+	</button>
 	<div class="chatbot">
 		<header>
 			<h2>Chatbot</h2>
+			<span id="send-btn" class="material-symbols-outlined">close</span>
 		</header>
 		<ul class="chatbox">
 			<li class="chat incoming">
@@ -22,7 +27,7 @@
 			</li>
 		</ul>
 		<div class="chat-input">
-			<textarea placeholder="Enter a message..."  id=""></textarea>
+			<textarea placeholder="Enter a message..." required></textarea>
 			<span id="send-btn" class="material-symbols-outlined">send</span>
 		</div>
 	</div>
