@@ -91,7 +91,7 @@ body{
 	margin: 0 10px 7px 0;
 	align-self: flex-end;
 }
-.chatbox .outgoming {
+.chatbox .outgoing {
 	justify-content: flex-end;
 	margin: 20px 0;
 } 
