@@ -138,7 +138,8 @@ body{
 	outline: none;
 	font-size: 0.95rem;
 	resize:none;
-	padding: 16px 15px 16px 0;;
+	padding: 16px 15px 16px 0;
+	max-height: 180px;
 }
 .chat-input span {
 	height: 55px;

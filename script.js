@@ -6,7 +6,8 @@ const chatbotCloseBtn = document.querySelector(".close-btn");
 
 
 let userMessage; 
-const API_KEY = "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"
+const API_KEY = "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";
+const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) =>{
 	const chatLi = document.createElement("li");
@@ -38,18 +39,16 @@ const generateResponse = (IncomingChatLi) => {
 		messageElement.classList.add("error");
 		messageElement.textContent = "Opps! Something went wrong. Please try again."
 	}).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
-
 }
 
 const handleChat = () => {
 	userMessage = chatInput.value.trim();
 	if(!userMessage) return;
-
 	chatInput.value = "";
+	chatInput.style.height = `${inputInitHeight}px`;
 
 	chatbox.appendChild(createChatLi(userMessage, "outgoing"));
 	chatbox.scrollTo(0, chatbox.scrollHeight);
-
 
 	setTimeout(() =>{
 		const IncomingChatLi = createChatLi("Thinking...", "incoming");
@@ -58,6 +57,18 @@ const handleChat = () => {
 		generateResponse(IncomingChatLi);
 	}, 600);
 }
+
+chatInput.addEventListener("input", () =>{
+	chatInput.style.height = `${inputInitHeight}px`;
+	chatInput.style.height = `${chatInput.scrollHeight}px`;
+});
+
+chatInput.addEventListener("keydown", (e) =>{
+	if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+		e.preventDefault();
+		handleChat();
+	}
+});
 
 sendChatBtn.addEventListener("click", handleChat);
 chatbotCloseBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
