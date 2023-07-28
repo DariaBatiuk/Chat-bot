@@ -2,6 +2,8 @@ const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatbox = document.querySelector(".chatbox");
 const chatbotToggler = document.querySelector(".chatbot-toggler");
+const chatbotCloseBtn = document.querySelector(".close-btn");
+
 
 let userMessage; 
 const API_KEY = "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"
@@ -33,6 +35,7 @@ const generateResponse = (IncomingChatLi) => {
 	fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
 		messageElement.textContent = data.choices[0].message.content;
 	}).catch((error) =>{
+		messageElement.classList.add("error");
 		messageElement.textContent = "Opps! Something went wrong. Please try again."
 	}).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 
@@ -56,5 +59,6 @@ const handleChat = () => {
 	}, 600);
 }
 
-chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 sendChatBtn.addEventListener("click", handleChat);
+chatbotCloseBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
