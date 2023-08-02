@@ -6,7 +6,7 @@ const chatbotCloseBtn = document.querySelector(".close-btn");
 
 
 let userMessage; 
-const API_KEY = "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";
+// const API_KEY = "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";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) =>{
@@ -19,18 +19,17 @@ const createChatLi = (message, className) =>{
 }
 
 const generateResponse = (IncomingChatLi) => {
-	const API_URL = "https://api.openai.com/v1/chat/completions";
+	const API_URL = 'http://localhost:8080/https://api.openai.com/v1/chat/completions';
 	const messageElement = IncomingChatLi.querySelector("p")
 
 	const requestOptions = {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			"Authorization": `Bearer ${API_KEY}`
 		},
 		body: JSON.stringify({
 			model: "gpt-3.5-turbo",
-			messages: [{role: "users", content: userMessage}]
+			messages: [{role: "user", content: userMessage}]
 		})
 	}
 	fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
