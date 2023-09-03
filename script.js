@@ -20,7 +20,7 @@ const createChatLi = (message, className) => {
 };
 
 const generateResponse = (IncomingChatLi) => {
-  const API_URL = "https://blog-mern-project-f1b2f793e445.herokuapp.com/";
+  const API_URL = "https://chatbot-gpt-2553bc3b5923.herokuapp.com/";
   const messageElement = IncomingChatLi.querySelector("p");
 
   const requestOptions = {
