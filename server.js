@@ -22,4 +22,4 @@ const proxyOptions = {
 // Create server
 const server = http.createServer((req, res) => proxy.web(req, res, proxyOptions));
 
-server.listen(8080, () => console.log(`Proxy api.openapi.com listen: ${PORT}`));
+server.listen(process.env.PORT || 8080, () => console.log(`Proxy api.openapi.com listen: ${PORT}`));
