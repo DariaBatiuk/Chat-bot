@@ -20,7 +20,7 @@ const createChatLi = (message, className) => {
 };
 
 const generateResponse = (IncomingChatLi) => {
-  const API_URL = "http://localhost:8080/v1/chat/completions";
+  const API_URL = "https://blog-mern-project-f1b2f793e445.herokuapp.com/";
   const messageElement = IncomingChatLi.querySelector("p");
 
   const requestOptions = {
