@@ -20,7 +20,7 @@ const createChatLi = (message, className) => {
 };
 
 const generateResponse = (IncomingChatLi) => {
-  const API_URL = "https://chatbot-gpt-2553bc3b5923.herokuapp.com/";
+  const API_URL = "https://chatbot-gpt-2553bc3b5923.herokuapp.com";
   const messageElement = IncomingChatLi.querySelector("p");
 
   const requestOptions = {
@@ -33,7 +33,7 @@ const generateResponse = (IncomingChatLi) => {
       messages: [{ role: "user", content: userMessage }],
     }),
   };
-  fetch(API_URL, requestOptions)
+  fetch(`${API_URL}/v1/chat/completions`, requestOptions)
     .then((res) => res.json())
     .then((data) => {
       messageElement.textContent = data.choices[0].message.content;
